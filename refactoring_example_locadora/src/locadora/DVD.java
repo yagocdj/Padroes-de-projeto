@@ -2,7 +2,6 @@ package locadora;
 
 public class DVD implements Alugavel {
 
-	// TODO - tirar essas variáveis estáticas daqui e colocar em cada classificação
 	public static final int NORMAL = 0;
 	public static final int LANCAMENTO = 1;
 	public static final int INFANTIL = 2;
@@ -49,8 +48,6 @@ public class DVD implements Alugavel {
 			break;
 		case INFANTIL:
 			classificacao = new DVDInfantil();
-			break;
-		default:
 			break;
 		}
 	}

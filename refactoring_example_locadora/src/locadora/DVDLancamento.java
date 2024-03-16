@@ -7,7 +7,7 @@ public class DVDLancamento extends Classificacao {
 
 	@Override
 	public int getCodigoDePreco() {
-		return 1;
+		return DVD.LANCAMENTO;
 	}
 
 	@Override

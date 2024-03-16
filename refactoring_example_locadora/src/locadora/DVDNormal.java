@@ -1,10 +1,10 @@
 package locadora;
 
 public class DVDNormal extends Classificacao {
-
+	
 	@Override
 	public int getCodigoDePreco() {
-		return 0;
+		return DVD.NORMAL;
 	}
 
 	@Override
