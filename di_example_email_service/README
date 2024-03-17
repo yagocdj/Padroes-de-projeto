@@ -1,0 +1,43 @@
+Neste exercício, aplicaremos o padrão DEPENDENCY INJECTION (DI) para obter um baixo acoplamento
+e extensibilidade no aplicativo
+
+============================================
+Contexto do Problema
+============================================
+- Um aplicativo em que é consumido um serviço de email (EmailService) para enviar e-mails. 
+- O pacote no.dependency.injection dispõe de um exemplo de implementação que normalmente seria feito
+- O pacote dependency.injection mostra a solução aplicando injeção de dependência.
+- Além de enviar serviço por email, será requisitado no futuro enviar mensagens via SMS
+
+
+============================================
+LIMITAÇÕES do código inicial
+============================================
+a) A classe Application é responsável por criar e inicializar o serviço de e-mail e então utilizá-lo. 
+Isso leva à "dependência codificada". Se quisermos mudar para algum outro serviço de e-mail avançado no futuro,
+serão necessárias alterações de código na classe Application. Isso torna nosso aplicativo difícil de
+estender e, se o serviço de e-mail for usado em várias classes, isso seria ainda mais difícil.
+
+b) Se quisermos estender nosso aplicativo para fornecer um recurso de mensagens adicional, como SMS 
+ou mensagem do Facebook, precisaremos escrever outro aplicativo para isso. Isso envolverá alterações de código
+ em classes de aplicativos e também em classes de clientes.
+ 
+c) Testar o aplicativo será muito difícil, pois nosso aplicativo está criando diretamente a 
+instância do serviço de e-mail. Não há como zombar desses objetos em nossas classes de teste.
+
+============================================
+Solução com Injeção de Dependência
+============================================
+a) os componentes de serviço devem ser projetados com classe ou interface base. 
+   É melhor preferir interfaces ou classes abstratas que definiriam o contrato para os serviços.
+   
+b) As classes de consumidor devem ser escritas em termos de interface de serviço.
+
+c) Classes injetoras que irão inicializar os serviços e depois as classes consumidoras.
+
+============================================
+Tarefa
+============================================
+1) Implementar a injeção de dependência do projeto inicial
+2) criar classes injetoras de serviço de email e SMS. Essas classes devem criar um MyApplication já com o 
+   serviço de mensagens correspondente embutido.
