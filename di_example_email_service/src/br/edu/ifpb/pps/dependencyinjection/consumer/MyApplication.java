@@ -1,4 +1,7 @@
-package no.dependency.injection;
+package br.edu.ifpb.pps.dependencyinjection.consumer;
+
+import br.edu.ifpb.pps.dependencyinjection.service.MessageService;
+
 /**
  * O código de cliente que usará a classe Application para enviar mensagens de e-mail será como abaixo.
  * @author alexs

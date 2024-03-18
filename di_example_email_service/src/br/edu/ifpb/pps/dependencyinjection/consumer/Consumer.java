@@ -1,4 +1,4 @@
-package no.dependency.injection;
+package br.edu.ifpb.pps.dependencyinjection.consumer;
 
 public interface Consumer {
 	

@@ -1,4 +1,4 @@
-package no.dependency.injection;
+package br.edu.ifpb.pps.dependencyinjection.service;
 
 /**
  * Classe contém a lógica para enviar uma mensagem de e-mail para o endereço de e-mail do destinatário.

@@ -1,4 +1,4 @@
-package no.dependency.injection;
+package br.edu.ifpb.pps.dependencyinjection.service;
 
 /**
  * Classe que contem a lógica responsável por enviar um SMS para o celular do destinatário.

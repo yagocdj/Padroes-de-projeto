@@ -1,4 +1,9 @@
-package no.dependency.injection;
+package br.edu.ifpb.pps.dependencyinjection.test;
+
+import br.edu.ifpb.pps.dependencyinjection.consumer.Consumer;
+import br.edu.ifpb.pps.dependencyinjection.injector.EmailServiceInjector;
+import br.edu.ifpb.pps.dependencyinjection.injector.MessageServiceInjector;
+import br.edu.ifpb.pps.dependencyinjection.injector.SMSServiceInjector;
 
 public class ClientTest {
 //	public static void main(String[] args) {
