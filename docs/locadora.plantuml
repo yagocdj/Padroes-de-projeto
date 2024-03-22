@@ -1,0 +1,28 @@
+@startuml locadora
+
+abstract class Extrato {
+    + String gerarExtrato(List<Aluguel> alugueis)
+    + {abstract} void formatarCabecalho()
+    + {abstract} void formatarCorpo()
+    + {abstract} void formatarRodape()
+
+}
+
+class ExtratoHTML {
+    
+    + void formatarCabecalho()
+    + void formatarCorpo()
+    + void formatarRodape()
+}
+
+class ExtratoString {
+
+    + void formatarCabecalho()
+    + void formatarCorpo()
+    + void formatarRodape()
+}
+
+class ExtratoHTML extends Extrato
+class ExtratoString extends Extrato
+
+@enduml
