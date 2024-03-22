@@ -2,9 +2,9 @@ package locadora;
 
 public class DVD implements Alugavel {
 
-	public static final int NORMAL = 0;
-	public static final int LANCAMENTO = 1;
-	public static final int INFANTIL = 2;
+//	public static final int NORMAL = 0;
+//	public static final int LANCAMENTO = 1;
+//	public static final int INFANTIL = 2;
 
 	private String titulo;
 	private Classificacao classificacao;
@@ -40,13 +40,13 @@ public class DVD implements Alugavel {
 
 	private void setCodigoDePreco(int codigoDePreco) {
 		switch (codigoDePreco) {
-		case NORMAL:
+		case Classificacao.NORMAL:
 			classificacao = new DVDNormal();
 			break;
-		case LANCAMENTO:
+		case Classificacao.LANCAMENTO:
 			classificacao = new DVDLancamento();
 			break;
-		case INFANTIL:
+		case Classificacao.INFANTIL:
 			classificacao = new DVDInfantil();
 			break;
 		}
