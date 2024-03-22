@@ -22,7 +22,11 @@ class ExtratoString {
     + void formatarRodape()
 }
 
+class Cliente { }
+
 class ExtratoHTML extends Extrato
 class ExtratoString extends Extrato
+
+Cliente .. Extrato : Usa
 
 @enduml
