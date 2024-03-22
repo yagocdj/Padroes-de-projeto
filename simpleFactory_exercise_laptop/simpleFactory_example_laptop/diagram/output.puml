@@ -1,0 +1,36 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+interface Laptop{
++ assemble(model : String, cpu : String, ram : int, hd : int) : void
++ runTests() : void
+}
+class Ultrabook{
++ runTests() : void
++ assemble(model : String, cpu : String, ram : int, hd : int) : void
+}
+Ultrabook ..|> Laptop
+
+class Gaming{
++ assemble(model : String, cpu : String, ram : int, hd : int) : void
++ runTests() : void
+}
+Gaming ..|> Laptop
+
+class Standard{
++ assemble(model : String, cpu : String, ram : int, hd : int) : void
++ runTests() : void
+}
+Standard ..|> Laptop
+
+class LaptopSimpleFactory{
++ {static} create(laptopType : String) : Laptop
+}
+
+class Client{
++ {static} main(args : String[]) : void
+}
+
+Client -- LaptopSimpleFactory:usa
+LaptopSimpleFactory --> Laptop:cria
+@enduml
