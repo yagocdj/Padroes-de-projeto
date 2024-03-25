@@ -1,7 +1,6 @@
 package locadora;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class Cliente {
@@ -21,49 +20,11 @@ public class Cliente {
 	}
 	
 	public String extratoHTML() {
-		final String fimDeLinha = System.getProperty("line.separator");
-		
-		Iterator<Aluguel> alugueis = dvdsAlugados.iterator();
-		String resultado = "<h1>Registro de alugueis de <em>" + getNome() +
-				"</em></h1><p>" + fimDeLinha;
-		
-		while (alugueis.hasNext()) {
-			Aluguel aluguelCorrente = alugueis.next();
-			
-			// mostra valores para este aluguel
-			resultado += aluguelCorrente.getAlugavel().getTitulo() + ": R$ " +
-					     aluguelCorrente.calcularPrecoDoAluguel() + "</br>"+ fimDeLinha;
-		}
-		
-		// adiciona rodapé
-		resultado += "</p><p>Valor total pago: <em>R$" + getValorTotalDoAluguel() +
-					 "</em></p>" + fimDeLinha;
-		resultado += "<p>Voce acumulou <em>" +
-				getTotalDePontosDeAlugadorFrequente() +
-				" pontos </em> de alugador frequente</p>";
-		
-		return resultado;
+		return new ExtratoHTML().gerarExtrato(this);
 	}
 
 	public String extrato() {
-		final String fimDeLinha = System.getProperty("line.separator");
-
-		Iterator<Aluguel> alugueis = dvdsAlugados.iterator();
-		String resultado = "Registro de Alugueis de " + getNome() + fimDeLinha;
-
-		while (alugueis.hasNext()) {
-			Aluguel aluguelCorrente = alugueis.next();
-
-			// mostra valores para este aluguel
-			resultado += "\t" + aluguelCorrente.getAlugavel().getTitulo() + "\t R$ "
-					+ aluguelCorrente.calcularPrecoDoAluguel() + fimDeLinha;
-		}
-
-		// adiciona rodapé
-		resultado += "Valor total pago: R$ " + getValorTotalDoAluguel() + fimDeLinha;
-		resultado += "Voce acumulou " + getTotalDePontosDeAlugadorFrequente() + " pontos de alugador frequente";
-
-		return resultado;
+		return new ExtratoTextoPuro().gerarExtrato(this);
 	}
 
 	// Os LOOPS extras a seguir compensam A DEPENDER DA SITUAÇÃO
@@ -80,6 +41,10 @@ public class Cliente {
 		for (Aluguel aluguelCorrente : dvdsAlugados)
 			totalDePontos += aluguelCorrente.calcularPontosDeAlugadorFrequente();
 		return totalDePontos;
+	}
+	
+	public List<Aluguel> getDvdsAlugados() {
+		return new ArrayList<>(this.dvdsAlugados);
 	}
 
 }

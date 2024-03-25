@@ -1,25 +1,26 @@
 @startuml locadora
 
 abstract class Extrato {
-    + String gerarExtrato(List<Aluguel> alugueis)
-    + {abstract} void formatarCabecalho()
-    + {abstract} void formatarCorpo()
-    + {abstract} void formatarRodape()
+    + final String gerarExtrato(Cliente cliente)
+    - formatarCorpoComBaseNosAlugueis(List<Aluguel> alugueis, String fimDeLinha)
+    + {abstract} String formatarCabecalho(String fimDeLinha, String nomeCliente)
+    + {abstract} String formatarCorpo(String fimDeLinha, Aluguel aluguel)
+    + {abstract} String formatarRodape(String fimDeLinha, Cliente cliente)
 
 }
 
 class ExtratoHTML {
     
-    + void formatarCabecalho()
-    + void formatarCorpo()
-    + void formatarRodape()
+    + String formatarCabecalho(String fimDeLinha, String nomeCliente)
+    + String formatarCorpo(String fimDeLinha, Aluguel aluguel)
+    + String formatarRodape(String fimDeLinha, Cliente cliente)
 }
 
-class ExtratoString {
+class ExtratoTextoPuro {
 
-    + void formatarCabecalho()
-    + void formatarCorpo()
-    + void formatarRodape()
+    + String formatarCabecalho(String fimDeLinha, String nomeCliente)
+    + String formatarCorpo(String fimDeLinha, Aluguel aluguel)
+    + String formatarRodape(String fimDeLinha, Cliente cliente)
 }
 
 class Cliente { }
