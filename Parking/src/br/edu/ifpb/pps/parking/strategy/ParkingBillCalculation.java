@@ -1,4 +1,4 @@
-package br.edu.ifpb.pps.parking.calculation;
+package br.edu.ifpb.pps.parking.strategy;
 
 import java.math.BigDecimal;
 import java.time.Duration;

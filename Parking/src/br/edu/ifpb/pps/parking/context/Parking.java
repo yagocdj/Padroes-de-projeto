@@ -1,10 +1,10 @@
-package br.edu.ifpb.pps.parking.manager;
+package br.edu.ifpb.pps.parking.context;
 
 import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-import br.edu.ifpb.pps.parking.calculation.ParkingBillCalculation;
+import br.edu.ifpb.pps.parking.strategy.ParkingBillCalculation;
 import br.edu.ifpb.pps.parking.vehicle.Vehicle;
 
 public class Parking {

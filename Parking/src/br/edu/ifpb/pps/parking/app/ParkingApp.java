@@ -3,10 +3,10 @@ package br.edu.ifpb.pps.parking.app;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import br.edu.ifpb.pps.parking.calculation.DayParkingBill;
-import br.edu.ifpb.pps.parking.calculation.HourParkingBill;
-import br.edu.ifpb.pps.parking.calculation.MonthParkingBill;
-import br.edu.ifpb.pps.parking.manager.Parking;
+import br.edu.ifpb.pps.parking.context.Parking;
+import br.edu.ifpb.pps.parking.strategy.DayParkingBill;
+import br.edu.ifpb.pps.parking.strategy.HourParkingBill;
+import br.edu.ifpb.pps.parking.strategy.MonthParkingBill;
 import br.edu.ifpb.pps.parking.vehicle.Vehicle;
 
 public class ParkingApp {
