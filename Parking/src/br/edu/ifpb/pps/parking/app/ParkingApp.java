@@ -42,7 +42,7 @@ public class ParkingApp {
 		parking.setEntryTime(LocalDateTime.parse(
 				"2024-03-15 11:30", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
 		parking.setExitTime(LocalDateTime.parse(
-				"2024-03-31 11:30", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
+				"2024-04-15 11:30", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
 		// set the strategy to be a month bill calculation
 		parking.setBillCalculation(new MonthParkingBill());
 		

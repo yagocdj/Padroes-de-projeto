@@ -1,18 +1,12 @@
 package br.edu.ifpb.pps.parking.context;
 
 import java.math.BigDecimal;
-import java.time.Duration;
 import java.time.LocalDateTime;
 
 import br.edu.ifpb.pps.parking.strategy.ParkingBillCalculation;
 import br.edu.ifpb.pps.parking.vehicle.Vehicle;
 
 public class Parking {
-	
-	// REMOVE LATER
-	private static final BigDecimal HOUR_VALUE = new BigDecimal(5);
-	private static final BigDecimal DAY_VALUE = new BigDecimal(30);
-	private static final BigDecimal MONTH_VALUE = new BigDecimal(300);
 	
 	private LocalDateTime entryTime;
 	private LocalDateTime exitTime;
@@ -21,7 +15,7 @@ public class Parking {
 	
 	public BigDecimal calculateBill() {
 		assert (entryTime != null && exitTime != null && vehicle != null);
-		return billCalculation.getTotalValue(Duration.between(entryTime, exitTime));
+		return billCalculation.getTotalValue(entryTime, exitTime);
 	}
 	
 	public LocalDateTime getEntryTime() {
