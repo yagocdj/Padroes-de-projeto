@@ -9,6 +9,10 @@ public class DayParkingBill implements ParkingBillCalculation {
 
 	@Override
 	public BigDecimal getTotalValue(Duration timePeriod) {
-		return DAY_VALUE.multiply(new BigDecimal(timePeriod.toDays()));
+		long days = timePeriod.toDays(); 
+		if (timePeriod.toHours() > 12 && days <= 1) {
+			return DAY_VALUE;
+		}
+		return DAY_VALUE.multiply(new BigDecimal(days));
 	}
 }

@@ -9,6 +9,10 @@ public class HourParkingBill implements ParkingBillCalculation {
 	
 	@Override
 	public BigDecimal getTotalValue(Duration timePeriod) {
-		return HOUR_VALUE.multiply(new BigDecimal(timePeriod.toHours()));
+		long hours = timePeriod.toHours();
+		if (hours <= 1) {
+			return HOUR_VALUE;
+		}
+		return HOUR_VALUE.multiply(new BigDecimal(hours));
 	}
 }

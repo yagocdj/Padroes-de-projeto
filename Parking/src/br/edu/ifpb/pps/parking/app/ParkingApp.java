@@ -19,7 +19,7 @@ public class ParkingApp {
 		parking.setEntryTime(LocalDateTime.parse(
 				"2024-03-31 01:30", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
 		parking.setExitTime(LocalDateTime.parse(
-				"2024-03-31 04:30", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
+				"2024-03-31 01:35", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
 		parking.setVehicle(new Vehicle("ABC1D23", "Civic", "Red"));
 		
 		// set the strategy to be a hour bill calculation
@@ -29,9 +29,9 @@ public class ParkingApp {
 		
 		// change the parking entry time and exit time
 		parking.setEntryTime(LocalDateTime.parse(
-				"2024-03-30 11:30", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
+				"2024-03-30 09:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
 		parking.setExitTime(LocalDateTime.parse(
-				"2024-03-31 12:30", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
+				"2024-03-30 22:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
 		
 		// set the strategy to be a day bill calculation
 		parking.setBillCalculation(new DayParkingBill());

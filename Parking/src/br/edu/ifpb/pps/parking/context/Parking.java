@@ -9,6 +9,11 @@ import br.edu.ifpb.pps.parking.vehicle.Vehicle;
 
 public class Parking {
 	
+	// REMOVE LATER
+	private static final BigDecimal HOUR_VALUE = new BigDecimal(5);
+	private static final BigDecimal DAY_VALUE = new BigDecimal(30);
+	private static final BigDecimal MONTH_VALUE = new BigDecimal(300);
+	
 	private LocalDateTime entryTime;
 	private LocalDateTime exitTime;
 	private Vehicle vehicle;
