@@ -1,0 +1,54 @@
+@startuml parking
+
+    class ParkingApp {
+        + {static} void main(String[] args)
+    }
+
+    class Vehicle {
+        - String plate
+        - String model
+        - String color
+    }
+
+    interface ParkingBillCalculation {
+        + {abstract} BigDecimal getTotalValue(LocalDateTime entryTime, LocalDateTime exitTime)
+    }
+
+    class DayParkingBill {
+        - {static} final BigDecimal DAY_VALUE
+        + BigDecimal getTotalValue(LocalDateTime entryTime, LocalDateTime exitTime)
+    }
+
+    class HourParkingBill {
+        - {static} final BigDecimal HOUR_VALUE
+        + BigDecimal getTotalValue(LocalDateTime entryTime, LocalDateTime exitTime)
+    }
+
+    class MonthParkingBill {
+        - {static} final BigDecimal MONTH_VALUE
+        + BigDecimal getTotalValue(LocalDateTime entryTime, LocalDateTime exitTime)
+    }
+
+    class Parking {
+        - LocalDateTime entryTime
+        - LocalDateTime exitTime
+        - Vehicle vehicle
+        - ParkingBillCalculation billCalculation
+
+        + BigDecimal calculateBill()
+        + void setBillCalculation(ParkingBillCalculation billCalculation)
+        + LocalDateTime getEntryTime()
+        + void setEntryTime(LocalDateTime entryTime)
+        + LocalDateTime getExitTime()
+        + LocalDateTime setExitTime(LocalDateTime exitTime)
+        + Vehicle getVehicle()
+        + void setVehicle(Vehicle vehicle)
+    }
+
+    ParkingBillCalculation <|.. DayParkingBill
+    ParkingBillCalculation <|.. HourParkingBill
+    ParkingBillCalculation <|.. MonthParkingBill
+    Parking *-- ParkingBillCalculation
+    Parking o-- Vehicle
+    ParkingApp ..> Parking
+@enduml
