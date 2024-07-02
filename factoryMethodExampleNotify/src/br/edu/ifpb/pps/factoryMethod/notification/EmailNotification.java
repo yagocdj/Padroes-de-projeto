@@ -1,4 +1,4 @@
-package br.edu.ifpb.pps.factoryMethod.notifications;
+package br.edu.ifpb.pps.factoryMethod.notification;
 
 import br.edu.ifpb.pps.factoryMethod.user.User;
 
