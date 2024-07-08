@@ -4,5 +4,5 @@ import br.edu.ifpb.pps.factoryMethod.user.User;
 
 public interface NotificationService {
 	
-	void notify(User user);
+	void sendNotification(User user);
 }

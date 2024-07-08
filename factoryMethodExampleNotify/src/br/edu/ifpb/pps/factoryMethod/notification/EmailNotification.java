@@ -5,7 +5,7 @@ import br.edu.ifpb.pps.factoryMethod.user.User;
 public class EmailNotification implements NotificationService {
 	
 	@Override
-	public void notify(User user) {
+	public void sendNotification(User user) {
 		
 		if (!validateUser(user)) {
 			System.out.println("Email inválido.");
