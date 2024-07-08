@@ -1,0 +1,44 @@
+@startuml MultiplatformGUI
+
+interface Button {
+    + Event onClick()
+    + void render()
+}
+
+class WindowsButton { }
+class MacButton { }
+class LinuxButton { }
+
+interface TextArea {
+    + int getCharCount()
+    + void render()
+}
+
+class WindowsTextArea { }
+class MacTextArea { }
+class LinuxTextArea { }
+
+interface ComboBox {
+    + int getOptionsCount()
+    + void render()
+}
+
+class WindowsComboBox { }
+class MacComboBox { }
+class LinuxComboBox { }
+
+' relationships
+
+Button <|.. WindowsButton
+Button <|.. MacButton
+Button <|.. LinuxButton
+
+TextArea <|.. WindowsTextArea
+TextArea <|.. MacTextArea
+TextArea <|.. LinuxTextArea
+
+ComboBox <|.. WindowsComboBox
+ComboBox <|.. MacComboBox
+ComboBox <|.. LinuxComboBox
+
+@enduml
