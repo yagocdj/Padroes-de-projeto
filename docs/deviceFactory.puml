@@ -1,0 +1,67 @@
+@startuml DeviceFactory
+' remove icon skins
+skinparam classAttributeIconSize 0
+class SmartphoneFactory{
+- connectivity : String
++ SmartphoneFactory(connectivity : String)
+# createGadget(inches : double, model : String) : Device
++ getConnectivity() : String
++ setConnectivity(connectivity : String) : void
+}
+SmartphoneFactory --|> DeviceFactory
+SmartphoneFactory ..> Device
+
+abstract class Device{
+- inches : double
+# model : String
+# os : String
+- certified : boolean
++ Device(inches : double, model : String)
++ getInches() : double
++ getModel() : String
++ getOs() : String
++ toString() : String
++ attest() : void
++ isCertified() : boolean
++ {abstract} installOS(osVersion : String) : void
++ {abstract} initialize() : void
+}
+class Smartphone{
+- simcard : String
++ Smartphone(inches : double, model : String)
++ Smartphone(inches : double, model : String, simcard : String)
++ getSimcard() : String
++ installOS(osVersion : String) : void
++ initialize() : void
+}
+Smartphone --|> Device
+class TabletFactory{
+- screenTechonogy : String
++ TabletFactory(screenTechonogy : String)
+# createGadget(inches : double, model : String) : Device
++ getScreenTechonogy() : String
++ setScreenTechonogy(screenTechonogy : String) : void
+}
+TabletFactory --|> DeviceFactory
+TabletFactory ..> Device
+
+abstract class DeviceFactory{
++ assemble(inches : double, model : String, os : String) : Device
++ runTest(gadget : Device) : void
+# {abstract} createGadget(inches : double, model : String) : Device
+}
+class MainFactoryMethod{
++ {static} main(args : String[]) : void
+}
+
+MainFactoryMethod ..> DeviceFactory
+
+class Tablet{
+- screenTecnology : String
++ Tablet(inches : double, model : String)
++ Tablet(inches : double, model : String, screen : String)
++ installOS(osVersion : String) : void
++ initialize() : void
+}
+Tablet --|> Device
+@enduml
