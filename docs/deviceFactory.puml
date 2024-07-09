@@ -45,10 +45,11 @@ class TabletFactory{
 TabletFactory --|> DeviceFactory
 TabletFactory ..> Device
 
-abstract class DeviceFactory{
+interface DeviceFactory{
 + assemble(inches : double, model : String, os : String) : Device
 + runTest(gadget : Device) : void
-# {abstract} createGadget(inches : double, model : String) : Device
++ createSmartphone(): Smartphone
++ createTablet(): Tablet
 }
 class MainFactoryMethod{
 + {static} main(args : String[]) : void
