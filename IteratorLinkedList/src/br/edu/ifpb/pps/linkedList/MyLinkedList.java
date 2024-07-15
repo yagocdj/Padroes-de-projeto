@@ -5,19 +5,11 @@ import br.edu.ifpb.pps.iterator.ListIterator;
 import br.edu.ifpb.pps.iterator.NaturalOrderListIterator;
 import br.edu.ifpb.pps.iterator.ReverseOrderListIterator;
 
-public class MyLinkedList implements IterableList {
+public class MyLinkedList<T> implements IterableList {
 
-	public Node firstNode; // pointer to the first node
-	public Node lastNode; // pointer to the last node
+	public Node<T> firstNode; // pointer to the first node
+	public Node<T> lastNode; // pointer to the last node
 	public String desc; // String used at the printing time
-	
-	public class EmptyListException extends Exception {
-		private static final long serialVersionUID = 1L;
-
-		public EmptyListException(String errorMessage) {
-			super(errorMessage);
-		}
-	}
 
 	/**
 	 * Creates an empty list with "s" as a description
@@ -53,11 +45,11 @@ public class MyLinkedList implements IterableList {
 	 * 
 	 * @param insertItem - a generic object.
 	 */
-	public synchronized void pushToFront(Object insertItem) {
+	public synchronized void pushToFront(T insertItem) {
 		if (isEmpty())
-			firstNode = lastNode = new Node(insertItem);
+			firstNode = lastNode = new Node<T>(insertItem);
 		else
-			firstNode = new Node(insertItem, firstNode);
+			firstNode = new Node<T>(insertItem, firstNode);
 	}
 
 	/**
@@ -67,11 +59,11 @@ public class MyLinkedList implements IterableList {
 	 * 
 	 * @param insertItem - a generic object.
 	 */
-	public synchronized void pushToBack(Object insertItem) {
+	public synchronized void pushToBack(T insertItem) {
 		if (isEmpty())
-			firstNode = lastNode = new Node(insertItem);
+			firstNode = lastNode = new Node<T>(insertItem);
 		else
-			lastNode = lastNode.next = new Node(insertItem);
+			lastNode = lastNode.next = new Node<T>(insertItem);
 	}
 
 	/**
@@ -80,8 +72,8 @@ public class MyLinkedList implements IterableList {
 	 * @return the removed element or null if no elements were found.
 	 * @throws EmptyListException - when the list is empty.
 	 */
-	public synchronized Object removeFromFront() throws EmptyListException {
-		Object removedItem = null;
+	public synchronized T removeFromFront() throws EmptyListException {
+		T removedItem = null;
 
 		if (isEmpty())
 			throw new EmptyListException(this.desc);
@@ -103,8 +95,8 @@ public class MyLinkedList implements IterableList {
 	 * @return the removed element or null if no elements were found.
 	 * @throws EmptyListException - when the list is empty.
 	 */
-	public synchronized Object removeFromBack() throws EmptyListException {
-		Object removedItem = null;
+	public synchronized T removeFromBack() throws EmptyListException {
+		T removedItem = null;
 
 		if (isEmpty())
 			throw new EmptyListException(this.desc);
@@ -115,7 +107,7 @@ public class MyLinkedList implements IterableList {
 		if (firstNode.equals(lastNode))
 			firstNode = lastNode = null;
 		else {
-			Node cursor = firstNode;
+			Node<T> cursor = firstNode;
 
 			while (cursor.next != lastNode) // is not equal to the last node
 				cursor = cursor.next; // goes to the next node
@@ -131,7 +123,7 @@ public class MyLinkedList implements IterableList {
 	 * Shows the list's content.
 	 */
 	public synchronized String toString() {
-		Node cursor = firstNode;
+		Node<T> cursor = firstNode;
 		String ret = "";
 
 		if (isEmpty()) {
@@ -155,8 +147,8 @@ public class MyLinkedList implements IterableList {
 	 * @return <code>true</code> if the searched value was found. Otherwise, it
 	 *         returns <code>false</code>.
 	 */
-	public boolean findNode(Object obj) {
-		Node cursor = this.firstNode;
+	public boolean findNode(T obj) {
+		Node<T> cursor = this.firstNode;
 		boolean found = false;
 
 		while (cursor != null) {
@@ -168,32 +160,33 @@ public class MyLinkedList implements IterableList {
 		}
 		return (found);
 	}
-	
+
 	/**
 	 * Calculates list's size.
+	 * 
 	 * @return the size of the list.
 	 */
 	public int size() {
 		int size = 0;
-		
+
 		if (isEmpty())
 			return size;
-		
-		Node cursor = firstNode;
-		
+
+		Node<T> cursor = firstNode;
+
 		while (cursor != null)
 			size++;
-		
+
 		return size;
 	}
 
 	@Override
-	public ListIterator createNaturalOrderListIterator() {
-		return new NaturalOrderListIterator(this);
+	public ListIterator<T> createNaturalOrderListIterator() {
+		return new NaturalOrderListIterator<T>(this);
 	}
 
 	@Override
-	public ListIterator createReverseOrderListIterator() {
-		return new ReverseOrderListIterator(this);
+	public ListIterator<T> createReverseOrderListIterator() {
+		return new ReverseOrderListIterator<T>(this);
 	}
 }

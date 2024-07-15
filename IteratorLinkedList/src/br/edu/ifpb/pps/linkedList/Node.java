@@ -1,16 +1,16 @@
 package br.edu.ifpb.pps.linkedList;
 
-public class Node {
+public class Node<T> {
 
-	public Object load;
-	public Node next;
+	public T load;
+	public Node<T> next;
 
 	/**
 	 * Creates a node that references an object.
 	 * 
 	 * @param obj - a generic object.
 	 */
-	public Node(Object obj) {
+	public Node(T obj) {
 		this(obj, null);
 	}
 
@@ -20,7 +20,7 @@ public class Node {
 	 * @param obj      - a generic object.
 	 * @param nextNode - pointer to the list's next node.
 	 */
-	public Node(Object obj, Node nextNode) {
+	public Node(T obj, Node<T> nextNode) {
 		load = obj;
 		next = nextNode;
 	}
@@ -30,7 +30,7 @@ public class Node {
 	 * 
 	 * @return a generic object.
 	 */
-	public Object getObject() {
+	public T getLoad() {
 		return load;
 	}
 
@@ -39,7 +39,7 @@ public class Node {
 	 * 
 	 * @return a Node object.
 	 */
-	public Node getNext() {
+	public Node<T> getNext() {
 		return next;
 	}
 }

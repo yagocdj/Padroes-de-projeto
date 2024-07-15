@@ -1,23 +1,23 @@
 package br.edu.ifpb.pps.iterator;
 
+import br.edu.ifpb.pps.linkedList.EmptyListException;
 import br.edu.ifpb.pps.linkedList.MyLinkedList;
-import br.edu.ifpb.pps.linkedList.MyLinkedList.EmptyListException;
 import br.edu.ifpb.pps.linkedList.Node;
 
-public class ReverseOrderListIterator implements ListIterator {
+public class ReverseOrderListIterator<T> implements ListIterator<T> {
 
-	private MyLinkedList collection;
-	private MyLinkedList stack;
+	private MyLinkedList<T> collection;
+	private MyLinkedList<T> stack;
 
-	public ReverseOrderListIterator(MyLinkedList collection) {
+	public ReverseOrderListIterator(MyLinkedList<T> collection) {
 		this.collection = collection;
-		this.stack = new MyLinkedList();
+		this.stack = new MyLinkedList<T>();
 
 		fillStack();
 	}
 
 	@Override
-	public Object getNext() {
+	public T getNext() {
 		try {
 			return stack.removeFromBack();
 		} catch (EmptyListException elex) {
@@ -36,12 +36,12 @@ public class ReverseOrderListIterator implements ListIterator {
 	}
 
 	private void fillStack() {
-		Node cursor = collection.firstNode;
+		Node<T> cursor = collection.firstNode;
 		while (cursor != null) {
 			stack.pushToBack(cursor.load);
 			cursor = cursor.next;
 		}
-		
+
 	}
 
 }

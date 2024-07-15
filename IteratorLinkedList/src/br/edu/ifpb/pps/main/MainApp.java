@@ -6,28 +6,36 @@ import br.edu.ifpb.pps.linkedList.MyLinkedList;
 public class MainApp {
 
 	public static void main(String[] args) {
-		
-		// create a list
-		MyLinkedList numbers = new MyLinkedList();
-		
+
+		// create a list of integers and fill it
+		MyLinkedList<Integer> numbers = new MyLinkedList<Integer>();
+
 		numbers.pushToBack(1);
 		numbers.pushToBack(3);
 		numbers.pushToBack(5);
 		numbers.pushToBack(7);
-		
-		ListIterator it = numbers.createNaturalOrderListIterator();
-		
+
+		// iterate over "numbers" using natural order iterator (from start to end of the linked list)
+		ListIterator<Integer> it = numbers.createNaturalOrderListIterator();
+
 		System.out.println("My iterator (natural order):");
 		while (it.hasNext()) {
-			System.out.println(it.getNext());
+			System.out.print(it.getNext() + " ");
 		}
-		
-		ListIterator reverseIt = numbers.createReverseOrderListIterator();
-		
+		System.out.println("");
+
+		// iterate over "numbers" using reverse order iterator (from end to start of the linked list)
+		ListIterator<Integer> reverseIt = numbers.createReverseOrderListIterator();
+
 		System.out.println("My other iterator (reverse order):");
 		while (reverseIt.hasNext()) {
-			System.out.println(reverseIt.getNext());
+			System.out.print(reverseIt.getNext() + " ");
 		}
+		System.out.println();
+
+		// reset both iterators
+		it.reset();
+		reverseIt.reset();
 
 	}
 
