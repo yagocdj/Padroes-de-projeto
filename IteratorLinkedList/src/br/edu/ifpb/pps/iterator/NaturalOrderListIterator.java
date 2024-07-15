@@ -7,23 +7,27 @@ public class NaturalOrderListIterator implements ListIterator {
 	
 	// TODO - a good addition would be to insert an integer index
 	private MyLinkedList collection;
-	private Node currentPosition = collection.firstNode;
+	private Node currentPosition;
 	
 	public NaturalOrderListIterator(MyLinkedList collection) {
 		this.collection = collection;
+		this.currentPosition = collection.firstNode;
 	}
 
 	@Override
-	public Node getNext() {
+	public Object getNext() {
 		if (!hasNext())
 			return null;
 		
-		return currentPosition.next;
+		Object currentNodeLoad = currentPosition.getObject();
+		currentPosition = currentPosition.getNext();
+		
+		return currentNodeLoad;
 	}
 
 	@Override
 	public boolean hasNext() {
-		return currentPosition.next != null;
+		return currentPosition != null;
 	}
 
 	@Override

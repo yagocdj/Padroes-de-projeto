@@ -3,6 +3,7 @@ package br.edu.ifpb.pps.linkedList;
 import br.edu.ifpb.pps.iterator.IterableList;
 import br.edu.ifpb.pps.iterator.ListIterator;
 import br.edu.ifpb.pps.iterator.NaturalOrderListIterator;
+import br.edu.ifpb.pps.iterator.ReverseOrderListIterator;
 
 public class MyLinkedList implements IterableList {
 
@@ -193,6 +194,6 @@ public class MyLinkedList implements IterableList {
 
 	@Override
 	public ListIterator createReverseOrderListIterator() {
-		return null;
+		return new ReverseOrderListIterator(this);
 	}
 }
